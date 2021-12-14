@@ -10,13 +10,15 @@ Run image :
 ```sh
 docker-compose up -d
 ```
+PhpMyadmin :
+
+```sh
+http://localhost:8080   |  login : root (without password)
+Create your own DB and use it in wordpress install process
+```
 WORDPRESS :
 
 ```sh
 http://localhost:3000
 ```
-PhpMyadmin :
 
-```sh
-http://localhost:8080   |  login : root (without password)
-```
