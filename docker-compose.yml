@@ -5,7 +5,10 @@ services:
       container_name: db_docker_kodistudio
       restart: always
       volumes:
-          - db-data:/var/lib/mysql
+          # to persist data into db-data directory project :
+          - ./db-data:/var/lib/mysql
+          # to persist data into db-data Docker volume :
+          #- db-data:/var/lib/mysql
       environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       networks:
@@ -46,7 +49,6 @@ services:
 
 networks: 
   dev:
-
 
 volumes:
   db-data:  
