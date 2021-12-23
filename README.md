@@ -6,19 +6,42 @@ Build docker image :
 ```sh
 docker-compose build
 ```
-Run image :
+Run project images :
 ```sh
 docker-compose up -d
 ```
-PhpMyadmin :
+## PhpMyadmin :
 
 ```sh
-http://localhost:8080   |  login : root (without password)
-Create your own DB and use it in wordpress install process
+- http://localhost:8080
+- login : root (without password)
 ```
-WORDPRESS :
+## WORDPRESS :
 
 ```sh
 http://localhost:3000
 ```
 
+Create and config your Wordpress :
+ - DB : wordpress
+ - Login : root
+ - pass :
+ - prefix : wp_
+
+ You can change DB name in the docker-compose.yml :
+```sh
+db:
+      image: mysql
+      container_name: db_docker_kodistudio
+      restart: always
+      volumes:
+          # to persist data into db-data directory project :
+          - ./db-data:/var/lib/mysql
+          # to persist data into db-data Docker volume
+          # - db-data:/var/lib/mysql
+      environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+          MYSQL_DATABASE: wordpress
+      networks:
+        - dev
+```
